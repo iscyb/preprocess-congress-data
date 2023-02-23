@@ -1,2 +1,4 @@
 # preprocess-congress-data
- Scripts to preprocess Stanford congress text data
+
+Script to preprocess [Stanford congress text data](https://data.stanford.edu/congress_text)
+
