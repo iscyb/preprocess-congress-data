@@ -1,6 +1,5 @@
 import os
 import re
-import argparse
 import numpy as np
 import pandas as pd
 from datetime import datetime
@@ -16,7 +15,7 @@ class DatasetHeinDaily:
         assert not set(self.descr.keys()).symmetric_difference(self.speeches.keys()) and not set(self.descr.keys()).symmetric_difference(self.speaker_map.keys()), 'The ids of the files do not overlap'
         
         self.drop_independent = drop_independent
-        self.keep_missing_speakerid = keep_missing_speakerid #Todo
+        self.keep_missing_speakerid = keep_missing_speakerid #TODO
 
         self.track_sizes = pd.DataFrame(columns=['speeches', 'after_merge', 'after_drop_independent']) # for verbosity
 
@@ -43,7 +42,7 @@ class DatasetHeinDaily:
         return pd.concat(pd_to_concat, axis=0, ignore_index=True)
             
 def get_file_names(file_category, directory)->dict:
-    # ex: file_naming = 'speeches'
+    # ex: file_category = 'speeches'
     out = {} # digit_id: file_name  (speeches_110.txt -> digit_id = 110 )
     for file_name in os.listdir(directory):
         rgx = r'^.*%s.*$'%(file_category)
